@@ -11,7 +11,7 @@ The .csv-File:
 Key | de_DE | en_US | en_UK
 ------------ | ------------- | ------------- | -------------
 HELLO | Hallo | Hello | Hello
-WORLD | Welt | World | World
+WORLD | Welt | World | World 
 
 Results in the three .json-Files: de_DE.json, en_US.json, en_UK.json
 

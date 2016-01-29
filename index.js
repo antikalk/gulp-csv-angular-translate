@@ -2,7 +2,7 @@
 
 var through = require('through2');
 var parse = require('csv-parse');
-var gutil = require('gulp-util');
+var gUtil = require('gulp-util');
 var path = require('path');
 
 // consts
@@ -30,38 +30,41 @@ module.exports = function() {
                     console.error('gulp-csv-angular-translate: COULD NOT PARSE CSV FILE');
                 } else {
                     var files = [];
-                    //initialize file names
-                    if (output[0]) {
-                        for (var i=1; i<output[0].length; i++) {
-                            files.push({langName: output[0][i], fileContent: {}});
-                        }
-                    }
 
                     //iterate over rows
-                    for (var i=1; i<output.length; i++) {
+                    for (var row=0; row<output.length; row++) {
                         //iterate over columns
-                        for (var j=1; j<output[i].length; j++) {
-                            files[j-1].fileContent[output[i][0]] = output[i][j];
+                        for (var column=1; column<output[row].length; column++) {
+                            if (row===0) {
+                                //initialize the files with file names from the header row
+                                files.push({langName: output[0][column], fileContent: {}});
+                            } else {
+                                files[column - 1].fileContent[output[row][0]] = output[row][column];
+                            }
                         }
                     }
 
                     //create and push files
-                    for (var i=0; i<files.length; i++) {
-                        var tempFile = new gutil.File({
+                    for (var file=0; file<files.length; file++) {
+                        //create file
+                        var tempFile = new gUtil.File({
                             base: '.',
                             cwd: __dirname,
-                            path: files[i].langName+fileEnding
+                            path: files[file].langName+fileEnding
                         });
-                        var content = JSON.stringify(files[i].fileContent);
+                        //JS Object -> JSON
+                        var content = JSON.stringify(files[file].fileContent);
+                        //set file content
                         tempFile.contents = new Buffer(content);
+                        //push file
                         sthis.push(tempFile);
                     }
-
                 }
             });
         }
 
-        callback(null, file);
+        //drop input file
+        callback(null);
     };
 
     return through.obj(readCsvAndCreateJsonFiles);

@@ -17,6 +17,10 @@ Results in the three .json-Files: de_DE.json, en_US.json, en_UK.json
 
 de_DE.json:
 `{"HELLO":"Hallo","WORLD":"Welt"}`
+en_US.json:
+`{"HELLO":"Hello","WORLD":"World"}`
+en_UK.json:
+`{"HELLO":"Hello","WORLD":"World"}`
 
 ## How to use the plugin
 

@@ -42,4 +42,21 @@ gulp.task('lang', function() {
 
 ## Configurations
 
-TODO
+#### Configure the csv-parser options
+
+The options for the csv parser can be configured under `csvParserOptions`. Find the possible configurations [here](http://csv.adaltas.com/parse/).
+
+Example:
+
+```javascript
+gulp.task('lang', function() {
+    gulp.src('lang.csv')
+        .pipe(gCat({
+            csvParseOptions: {
+                delimiter: ';',
+                trim: true
+            }
+        }))
+        .pipe(gulp.dest('build'));
+});
+```

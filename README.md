@@ -32,7 +32,7 @@ Install the plugin:
 Write the gulp task:
 
 ```javascript
-gCat = require('gulp-csv-angular-translate');
+var gCat = require('gulp-csv-angular-translate');
 gulp.task('lang', function() {
      gulp.src('lang.csv') //language source .csv
          .pipe(gCat()) //run the plugin

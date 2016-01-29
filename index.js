@@ -8,7 +8,7 @@ var path = require('path');
 // consts
 var PLUGIN_NAME = 'gulp-csv-angular-translate';
 
-module.exports = function() {
+module.exports = function(options) {
     var readCsvAndCreateJsonFiles = function(file, enc, callback) {
         //check if file is null
         if (file.isNull()) {
@@ -25,7 +25,16 @@ module.exports = function() {
             var csvText = file.contents;
             var fileEnding = '.json';
             var sthis = this;
-            parse(csvText, {comment: '#'}, function(err, output) {
+
+            //parseOptions
+            var parseOptions;
+            if (options && options.csvParseOptions) {
+                parseOptions = options.csvParseOptions;
+            } else {
+                parseOptions = {comment: '#'};
+            }
+
+            parse(csvText, parseOptions, function(err, output) {
                 if (err) {
                     console.error('gulp-csv-angular-translate: COULD NOT PARSE CSV FILE');
                 } else {

@@ -1,0 +1,30 @@
+{
+  "name": "gulp-csv-angular-translate",
+  "version": "0.0.1",
+  "description": "Gulp plugin for generating multiple language JSON files out of one CSV File.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antikalk/gulp-csv-angular-translate.git"
+  },
+  "keywords": [
+    "gulpplugin"
+  ],
+  "author": "antikalk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/antikalk/gulp-csv-angular-translate/issues"
+  },
+  "homepage": "https://github.com/antikalk/gulp-csv-angular-translate#readme",
+  "dependencies": {
+    "csv-parse": "^1.0.1",
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-debug": "^2.1.2",
+    "gulp-util": "^3.0.7",
+    "through2": "^2.0.0"
+  }
+}

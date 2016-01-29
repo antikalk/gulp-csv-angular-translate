@@ -1,4 +1,4 @@
-# gulp-csv-angular-translate
+# gulp-csv-angular-translate (gCat)
 Gulp plugin for generating multiple language JSON files out of one CSV File.
 
 ## What's it for?

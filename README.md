@@ -2,7 +2,7 @@
 Gulp plugin for generating multiple language JSON files out of one CSV File.
 
 ## What's it for?
-When using angular-translate with ![asynch loading](https://github.com/angular-translate/angular-translate/wiki/Asynchronous-loading) and splitted language files for minimizing the network traffic, writing the different JSON-Files can be confusing.
+When using angular-translate with [asynch loading](https://github.com/angular-translate/angular-translate/wiki/Asynchronous-loading) and splitted language files for minimizing the network traffic, writing the different JSON-Files can be confusing.
 
 This Plugin provides a simple way of translating the different languages in only one .csv-File and generating the needed .json-Files.
 
@@ -26,12 +26,14 @@ Install the plugin:
 
 Write the gulp task:
 
-`gCat = require('gulp-csv-angular-translate');
+```javascript
+gCat = require('gulp-csv-angular-translate');
 gulp.task('lang', function() {
      gulp.src('lang.csv') //language Source .csv
          .pipe(gCat()) //run the plugin
          .pipe(gulp.dest('build')); //put out the json-files in a specified folder
-});`
+});
+```
 
 ## Configurations
 

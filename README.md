@@ -9,7 +9,7 @@ This Plugin provides a simple way of translating the different languages in only
 The .csv-File:
 
 Key | de_DE | en_US | en_UK
------------- | -------------
+------------ | ------------- | ------------- | -------------
 HELLO | Hallo | Hello | Hello
 WORLD | Welt | World | World
 

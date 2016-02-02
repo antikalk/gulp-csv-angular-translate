@@ -1,6 +1,6 @@
 {
   "name": "gulp-csv-angular-translate",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Gulp plugin for generating multiple language JSON files out of one CSV File.",
   "main": "index.js",
   "scripts": {

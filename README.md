@@ -26,8 +26,7 @@ en_UK.json:
 
 ## How to use the plugin
 
-Install the plugin: 
-(NOT YET AVAILABLE)
+Install the plugin:
 
 `npm install --save gulp-csv-angular-translate`
 

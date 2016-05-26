@@ -36,7 +36,7 @@ module.exports = function(options) {
 
             parse(csvText, parseOptions, function(err, output) {
                 if (err) {
-                    console.error('gulp-csv-angular-translate: COULD NOT PARSE CSV FILE');
+                    console.error('gulp-csv-angular-translate: COULD NOT PARSE CSV FILE [ERROR: '+err+']');
                 } else {
                     var files = [];
 

@@ -42,12 +42,18 @@ module.exports = function(options) {
 
                     //iterate over rows
                     for (var row=0; row<output.length; row++) {
+                        var duplicateErrorPrinted = false;
                         //iterate over columns
                         for (var column=1; column<output[row].length; column++) {
                             if (row===0) {
                                 //initialize the files with file names from the header row
                                 files.push({langName: output[0][column], fileContent: {}});
                             } else {
+                                //check if translation key is duplicate
+                                if (files[column - 1] && files[column - 1].fileContent[output[row][0]] && !duplicateErrorPrinted) {
+                                    console.warn('gulp-csv-angular-translate: FOUND DUPLICATE TRANSLATION-KEY ['+output[row][0]+']');
+                                    duplicateErrorPrinted = true;
+                                }
                                 files[column - 1].fileContent[output[row][0]] = output[row][column];
                             }
                         }

@@ -33,6 +33,10 @@ module.exports = function(options) {
             } else {
                 parseOptions = {comment: '#'};
             }
+            var skipEmptyTranslations = false;
+            if (options && options.skipEmptyTranslations) {
+                skipEmptyTranslations = true;
+            }
 
             parse(csvText, parseOptions, function(err, output) {
                 if (err) {
@@ -54,7 +58,9 @@ module.exports = function(options) {
                                     console.warn('gulp-csv-angular-translate: FOUND DUPLICATE TRANSLATION-KEY ['+output[row][0]+']');
                                     duplicateErrorPrinted = true;
                                 }
-                                files[column - 1].fileContent[output[row][0]] = output[row][column];
+                                if (output[row][column] || !skipEmptyTranslations) {
+                                    files[column - 1].fileContent[output[row][0]] = output[row][column];
+                                }
                             }
                         }
                     }

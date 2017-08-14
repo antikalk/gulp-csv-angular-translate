@@ -61,3 +61,19 @@ gulp.task('lang', function() {
         .pipe(gulp.dest('build'));
 });
 ```
+
+#### Skip empty translations
+
+The option `skipEmptyTranslations` always empty translations to be skipped. This means that empty columns don't result in an empty translation string.
+
+Example: 
+
+```javascript
+gulp.task('lang', function() {
+    gulp.src('lang.csv')
+        .pipe(gCat({
+            skipEmptyTranslations: true
+        }))
+        .pipe(gulp.dest('build'));
+});
+```
